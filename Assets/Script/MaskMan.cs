@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class Maskman : MonoBehaviour
 {
     public Mask mask;
+    public TextMeshProUGUI buttonLabel;
 
     private SpriteRenderer spriteRenderer;
 
@@ -14,6 +16,7 @@ public class Maskman : MonoBehaviour
     void Start()
     {
         spriteRenderer.color = mask.color;
+        buttonLabel.text = mask.code.ToString();
     }
 
     public override string ToString()

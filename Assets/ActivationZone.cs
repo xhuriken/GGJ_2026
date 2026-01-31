@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ActivationZone : MonoBehaviour
 {
-    float worldRadius;
+    [SerializeField] private float worldRadius;
 
     void Awake()
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        worldRadius = (spriteRenderer.bounds.min -  spriteRenderer.bounds.max).magnitude / 2f;
+        float localSpriteRadius = spriteRenderer.sprite.bounds.extents.x;
+        float scaleFactor = worldRadius / localSpriteRadius;
+        transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
     }
 
     public float GetWorldRadius()
