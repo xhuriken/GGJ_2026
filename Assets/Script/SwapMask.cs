@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,10 @@ public class SwapMask : MonoBehaviour
         Vector3 pusherPOs = FindClosestMaskmanOf(mask, playerPos);
         var pushDistance = (playerPos - pusherPOs).normalized * strenght;
         currentTargetPos = pushDistance + playerPos;
-        StopAllCoroutines();
-        StartCoroutine(PushCoroutine());
+
+        // Move player
+        transform.DOMove(currentTargetPos, smoothTime).SetEase(Ease.OutQuart);
+
     }   
 
     private Vector3 FindClosestMaskmanOf(Mask mask, Vector3 playerPos)
@@ -51,14 +54,4 @@ public class SwapMask : MonoBehaviour
         return pusherPos;
     }
 
-    public IEnumerator PushCoroutine()
-    {
-        /*transform.position = targetPos;
-        yield return null; */  
-        Vector3 currentVelocity = Vector3.zero;
-        while ((currentTargetPos - transform.position).magnitude > 0.0001f ) {
-            transform.position = Vector3.SmoothDamp(transform.position, currentTargetPos, ref currentVelocity, smoothTime);
-            yield return null;
-        }
-    }
 }
