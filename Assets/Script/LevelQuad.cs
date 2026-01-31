@@ -90,4 +90,12 @@ public class LevelQuad : MonoBehaviour
         }
     }
 
+    public bool Contains(Transform transform)
+    {
+        return xMin - 0.01f <= transform.position.x 
+            && yMin - 0.01f <= transform.position.y 
+            && xMax + 0.01f >= transform.position.x 
+            && yMax + 0.01f >= transform.position.y ;
+    }
+
 }

@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +7,7 @@ public class SwapMask : MonoBehaviour
 {
     [SerializeField] private float strenght;
     [SerializeField] private float smoothTime;
+    [SerializeField] private ActivationZone activationZone;
     private List<Maskman> maskmen;
     public Vector3 currentTargetPos;
 
@@ -30,16 +30,19 @@ public class SwapMask : MonoBehaviour
     public void MaskSwap(Mask mask)
     {
         Vector3 playerPos = transform.position;
-        Vector3 pusherPOs = FindClosestMaskmanOf(mask, playerPos);
-        var pushDistance = (playerPos - pusherPOs).normalized * strenght;
-        currentTargetPos = pushDistance + playerPos;
-        SetCurrentTargetPos(currentTargetPos);
+        Transform pusherTransform = FindClosestMaskmanOf(mask, playerPos);
+        if(pusherTransform != null)
+        {
+            var pushDistance = (playerPos - pusherTransform.position).normalized * strenght;
+            currentTargetPos = pushDistance + playerPos;
+            SetCurrentTargetPos(currentTargetPos);
+        }
     }   
 
-    private Vector3 FindClosestMaskmanOf(Mask mask, Vector3 playerPos)
+    private Transform FindClosestMaskmanOf(Mask mask, Vector3 playerPos)
     {   
         float minDistance = float.MaxValue;
-        Vector3 pusherPos = Vector3.zero;
+        Transform pusherTransform = null;
         foreach(var maskman in maskmen)
         {
             if(!maskman.mask.Equals(mask))
@@ -47,14 +50,34 @@ public class SwapMask : MonoBehaviour
                 continue;
             }
 
+            if(IsOutsideActivationZone(maskman))
+            {
+                continue;
+            }
+
+            if (!IsInCurrentLevelQuad(maskman))
+            {
+                continue;
+            }
+
             var distance = (maskman.transform.position - playerPos).magnitude;
             if(distance < minDistance)
             {
-                pusherPos = maskman.transform.position;
+                pusherTransform = maskman.transform;
                 minDistance = distance;
             }
         }
-        return pusherPos;
+        return pusherTransform ;
     }
 
+    private bool IsOutsideActivationZone(Maskman man)
+    {
+        var distToMaskman = (man.transform.position - transform.position).magnitude;
+        return distToMaskman > activationZone.GetWorldRadius();
+    }
+
+    private bool IsInCurrentLevelQuad(Maskman man)
+    {
+        return GameManager.Instance().GetCurrentLevelQuad().Contains(man.transform);
+    }
 }

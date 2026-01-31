@@ -23,7 +23,7 @@ public class InputSystem : MonoBehaviour
         {
             if (Input.GetKeyDown(mask.code))
             {
-                onChangeMask.Invoke(mask);
+                onChangeMask?.Invoke(mask);
                 Debug.Log($"swap to {mask.label}");   
                 break;
             }
