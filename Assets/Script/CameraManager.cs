@@ -1,15 +1,23 @@
+using Cinemachine;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static System.TimeZoneInfo;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : BeatListen
 {
     private static CameraManager instance;
 
     public static CameraManager Instance() => instance;
 
     private CinemachineVirtualCamera cineCam;
+
+    [Header("Anim Settings")]
+    [SerializeField] private float defaultSize = 5.3f;
+    [SerializeField] private float zoomIntensity = 0.1f;
+    [SerializeField] private float pulseDuration = 0.05f;
 
     void Awake()
     {
@@ -27,4 +35,20 @@ public class CameraManager : MonoBehaviour
         cineCam.LookAt = levelQuad.transform;
         cineCam.Follow = levelQuad.transform;
     }
+
+    protected override void HandleBeat(int beatNumber)
+    {
+        DOTween.Kill(cineCam);
+
+        cineCam.m_Lens.OrthographicSize = defaultSize + zoomIntensity;
+
+        DOTween.To(() => cineCam.m_Lens.OrthographicSize,
+                   x => cineCam.m_Lens.OrthographicSize = x,
+                   defaultSize,
+                   pulseDuration)
+            .SetEase(Ease.OutQuad)
+            .SetLoops(2, LoopType.Yoyo) 
+            .SetTarget(cineCam);
+    }
 }
+
