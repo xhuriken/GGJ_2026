@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.Utilities;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance() => instance;
 
     private LevelQuad[] quads;
+    private List<Maskman> maskmen;
+    private List<Mask> masks;
     private Transform player;
 
     void Awake()
@@ -18,13 +22,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameManager duplicate destroyed");
         }
         instance = this;
-    }
-
-    void Start()
-    {
         player = FindFirstObjectByType<SwapMask>().transform;
         quads = FindObjectsByType<LevelQuad>(FindObjectsSortMode.None);
+        maskmen = FindObjectsByType<Maskman>(FindObjectsSortMode.None).ToList();
+        masks = maskmen.Select(m => m.mask).Distinct().ToList();
+
     }
+
+    public List<Maskman> GetAllMaskmen() => maskmen;
+    public List<Mask> GetAllMasks() => masks;  
 
     public void ActivateQuadBoundaries(bool active)
     {
