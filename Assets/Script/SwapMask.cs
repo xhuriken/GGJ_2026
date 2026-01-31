@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwapMask : MonoBehaviour
@@ -18,6 +19,16 @@ public class SwapMask : MonoBehaviour
             .FindObjectsByType<Maskman>(FindObjectsSortMode.None)
             .ToList();
 
+    }
+
+    void Start()
+    {
+        InputSystem.Instance().onChangeMask.AddListener(MaskSwap);   
+    }
+
+    void OnDestroy( )
+    {
+        InputSystem.Instance().onChangeMask.RemoveListener(MaskSwap);
     }
 
     public Vector3 GetCurrentTargetPos() => currentTargetPos;

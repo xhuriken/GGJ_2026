@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance() => instance;
 
-    public LevelQuad[] quads;
-    public Transform player;
+    private LevelQuad[] quads;
+    private Transform player;
 
     void Awake()
     {

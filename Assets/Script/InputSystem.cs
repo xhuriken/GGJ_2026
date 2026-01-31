@@ -6,11 +6,20 @@ using UnityEngine.Events;
 
 public class InputSystem : MonoBehaviour
 {
+    private static InputSystem instance;
+    public static InputSystem Instance() => instance;
+
     private List<Mask> masks;
     public UnityEvent<Mask> onChangeMask; 
 
     void Awake()
     {
+        if(instance != null &&  instance != this)
+        {
+            Destroy(instance);
+            Debug.Log($"Duplicate of InputSystem deployed");
+        }
+        instance  = this;
         masks = GameObject.FindObjectsByType<Maskman>(FindObjectsSortMode.None)
             .Select(man => man.mask)
             .Distinct()

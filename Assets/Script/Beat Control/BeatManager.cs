@@ -92,7 +92,7 @@ public class BeatManager : MonoBehaviour
                 {
                     OnSnareBeat?.Invoke(beatCount);
                     measureCount++;
-                    Debug.LogWarning($"[BeatManager] {measureCount} mesure");
+                    //Debug.LogWarning($"[BeatManager] {measureCount} mesure");
                 }
 
                 nextBeatTime += beatDuration;
