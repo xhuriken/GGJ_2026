@@ -4,16 +4,12 @@ using DG.Tweening;
 
 public enum BeatType { Beat, Snare, Offbeat, OpenHat }
 
-public class BeatListen : MonoBehaviour
+public abstract class BeatListen : MonoBehaviour
 {
     public BeatType beatType = BeatType.Beat; 
 
 
-    void Awake()
-    {
-    }
-
-    IEnumerator Start()
+    public IEnumerator Start()
     {
         yield return new WaitUntil(() => BeatManager.Instance != null);
         Subscribe();
@@ -70,10 +66,5 @@ public class BeatListen : MonoBehaviour
         }
     }
 
-    void HandleBeat(int beatNumber)
-    {
-        if (this == null)
-            return;
-        // MAKE SOMETHING !
-    }   
+    protected abstract void HandleBeat(int beatNumber);
 }
