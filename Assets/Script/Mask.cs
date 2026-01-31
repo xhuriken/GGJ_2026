@@ -6,4 +6,5 @@ public class Mask : ScriptableObject
     public Color color;
     public KeyCode code;
     public string label;
+    public float pushStrenght;
 }
