@@ -7,7 +7,7 @@ public class Player : BeatListen
 {
     protected override void HandleBeat(int beatNumber)
     {
-        Debug.Log($"Je suis le player et yoohoo ça beat un max ici: {beatNumber}");
+        //Debug.Log($"Je suis le player et yoohoo ï¿½a beat un max ici: {beatNumber}");
         DOTween.Kill(this);
         transform.DOScale(1.2f, 0.05f)
                 .SetLoops(2, LoopType.Yoyo)

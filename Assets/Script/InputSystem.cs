@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class InputSystem : MonoBehaviour
 {
@@ -28,6 +30,12 @@ public class InputSystem : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            DOTween.KillAll();
+            Scene currentScene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(currentScene.name);
+        }
         foreach(var mask in masks)
         {
             if (Input.GetKeyDown(mask.code))
