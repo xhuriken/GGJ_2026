@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.Utilities;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,11 @@ public class GameManager : MonoBehaviour
     {
         player = FindFirstObjectByType<SwapMask>().transform;
         quads = FindObjectsByType<LevelQuad>(FindObjectsSortMode.None);
+    }
+
+    public void ActivateQuadBoundaries(bool active)
+    {
+        quads.ForEach(quad => quad.Active = active);
     }
 
 

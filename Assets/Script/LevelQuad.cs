@@ -6,6 +6,7 @@ public class LevelQuad : MonoBehaviour
     public LevelQuad right;
     public LevelQuad top;
     public LevelQuad bottom;
+    public Transform spawn;
 
     float xMax, yMax, xMin, yMin;
 
@@ -13,6 +14,9 @@ public class LevelQuad : MonoBehaviour
     public float GetXmin() => xMin;
     public float GetYMax() => yMax; 
     public float GetYmin() => yMin; 
+    public Vector3 GetSpawnPosition() => spawn.transform.position;
+
+    public bool Active { get; set;} = true;
 
     void Awake()
     {
@@ -34,7 +38,7 @@ public class LevelQuad : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Active)
         {
             Debug.Log("Player has left the level!");
             CircleCollider2D collider = other.gameObject.GetComponent<CircleCollider2D>();

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class SwapMask : MonoBehaviour
         maskmen = GameObject
             .FindObjectsByType<Maskman>(FindObjectsSortMode.None)
             .ToList();
+
     }
 
     public Vector3 GetCurrentTargetPos() => currentTargetPos;
@@ -25,6 +27,24 @@ public class SwapMask : MonoBehaviour
         this.currentTargetPos = currentTargetPos;
         DOTween.Kill(this);
         transform.DOMove(currentTargetPos, smoothTime).SetEase(Ease.OutQuart).SetTarget(this);
+    }
+
+    public void SetPosition(Vector3 targetPos)
+    {
+       StartCoroutine(SetPosCoroutine(targetPos));
+    }
+
+    IEnumerator SetPosCoroutine(Vector3 targetPos)
+    {
+        DOTween.Kill(this);
+        GameManager.Instance().ActivateQuadBoundaries(false);
+        enabled = false;
+        yield return new WaitForFixedUpdate();
+        currentTargetPos = targetPos;
+        transform.position = targetPos;
+        yield return new WaitForFixedUpdate();
+        enabled = true;
+        GameManager.Instance().ActivateQuadBoundaries(true);
     }
 
     public void MaskSwap(Mask mask)
