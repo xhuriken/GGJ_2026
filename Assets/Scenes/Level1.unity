@@ -538,6 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1092496984}
   - {fileID: 1411760766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -631,7 +632,7 @@ Transform:
   m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1411760766}
+  m_Father: {fileID: 988473816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1092496985
 MonoBehaviour:
@@ -791,7 +792,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1092496984}
   - {fileID: 1868711913}
   - {fileID: 795324665}
   m_Father: {fileID: 988473816}
@@ -858,7 +858,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

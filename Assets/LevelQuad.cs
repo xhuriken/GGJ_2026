@@ -1,3 +1,7 @@
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using Unity.Properties;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelQuad : MonoBehaviour
@@ -18,7 +22,12 @@ public class LevelQuad : MonoBehaviour
         Debug.Log($"Boundaries Calculated: X({xMin}, {xMax}) Y({yMin}, {yMax})");
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public Vector3 GetWorldCenter()
+    {
+        return new Vector3(xMax - xMin, yMax - yMin, transform.position.z);
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

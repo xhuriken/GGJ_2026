@@ -19,7 +19,13 @@ public class SwapMask : MonoBehaviour
     }
 
     public Vector3 GetCurrentTargetPos() => currentTargetPos;
-    public void SetCurrentTargetPos(Vector3 currentTargetPos) => this.currentTargetPos = currentTargetPos;
+
+    public void SetCurrentTargetPos(Vector3 currentTargetPos)
+    {
+        this.currentTargetPos = currentTargetPos;
+        DOTween.Kill(this);
+        transform.DOMove(currentTargetPos, smoothTime).SetEase(Ease.OutQuart).SetTarget(this);
+    }
 
     public void MaskSwap(Mask mask)
     {
@@ -27,10 +33,7 @@ public class SwapMask : MonoBehaviour
         Vector3 pusherPOs = FindClosestMaskmanOf(mask, playerPos);
         var pushDistance = (playerPos - pusherPOs).normalized * strenght;
         currentTargetPos = pushDistance + playerPos;
-
-        // Move player
-        transform.DOMove(currentTargetPos, smoothTime).SetEase(Ease.OutQuart);
-
+        SetCurrentTargetPos(currentTargetPos);
     }   
 
     private Vector3 FindClosestMaskmanOf(Mask mask, Vector3 playerPos)
