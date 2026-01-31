@@ -15,6 +15,7 @@ public class InputSystem : MonoBehaviour
     public UnityEvent<Mask> onChangeMask; 
     public bool OnHold { get; set; } = false; 
 
+    private bool canReload = true;
     void Awake()
     {
         if(instance != null &&  instance != this)
@@ -38,7 +39,8 @@ public class InputSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             DOTween.KillAll();
-            Scene currentScene = SceneManager.GetActiveScene(); 
+            Scene currentScene = SceneManager.GetActiveScene();
+            GlobalEffect.Instance.LaunchScreenTransition();
             SceneManager.LoadScene(currentScene.name);
         }
         foreach(var mask in masks)
@@ -53,7 +55,6 @@ public class InputSystem : MonoBehaviour
                     // TODO: add scoring effect
                 }
 
-                onChangeMask.Invoke(mask);
                 Debug.Log($"swap to {mask.label}");   
                 break;
             }

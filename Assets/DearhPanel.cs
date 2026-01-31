@@ -29,7 +29,7 @@ public class DearhPanel : MonoBehaviour
     public void ReloadScene()
     {
         Hide();
-        DOTween.KillAll();
+        GlobalEffect.Instance.LaunchScreenTransition();
         Scene currentScene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(currentScene.name);
     }

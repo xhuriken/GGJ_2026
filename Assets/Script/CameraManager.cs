@@ -21,9 +21,7 @@ public class CameraManager : BeatListen
     [SerializeField] private float zoomIntensity = 0.1f;
     [SerializeField] private float pulseDuration = 0.05f;
 
-    [Header("Components")]
-    [SerializeField] private Volume postProcessVolume;
-    private LensDistortion lensDistortion;
+
 
 
 
@@ -37,30 +35,14 @@ public class CameraManager : BeatListen
         instance = this;
         cineCam = GetComponent<CinemachineVirtualCamera>();
 
-        if (postProcessVolume.profile.TryGet(out lensDistortion))
-        {
-            lensDistortion.intensity.Override(0f);
-        }
+
     }
 
     public void FocusOnLevelQuad(LevelQuad levelQuad)
     {
         cineCam.LookAt = levelQuad.transform;
         cineCam.Follow = levelQuad.transform;
-
-        // Get volume, tween values
-        // Get lens distortion, move intensity
-        if (lensDistortion != null)
-        {
-            DOTween.Kill(lensDistortion);
-            DOTween.To(() => lensDistortion.intensity.value,
-                       x => lensDistortion.intensity.value = x,
-                       -1,
-                       0.2f)
-                .SetEase(Ease.OutExpo) // Plus "punchy" pour la distorsion
-                .SetLoops(2, LoopType.Yoyo)
-                .SetTarget(lensDistortion);
-        }
+        GlobalEffect.Instance.LaunchScreenTransition();
 
     }
 

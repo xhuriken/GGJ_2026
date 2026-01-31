@@ -81,6 +81,10 @@ public class SwapMask : MonoBehaviour
         {
             var pushDistance = (playerPos - pusherTransform.position).normalized * mask.pushStrenght;
             currentTargetPos = pushDistance + playerPos;
+
+            // Move maskman
+            pusherTransform.GetComponent<Maskman>().Push(transform.position);
+            // Move player
             SetCurrentTargetPos(currentTargetPos);
         }
     }   
