@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Analytics;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +11,7 @@ public class InputSystem : MonoBehaviour
     private static InputSystem instance;
     public static InputSystem Instance() => instance;
 
-    private List<Mask> masks;
+    public List<Mask> masks;
     public UnityEvent<Mask> onChangeMask; 
     public bool OnHold { get; set; } = false; 
 

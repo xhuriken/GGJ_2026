@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebfa6c04ef62f294e8cbaa1de90680b4, type: 3}
-  m_Name: YellowMask
+  m_Name: RedMask
   m_EditorClassIdentifier: 
-  color: {r: 0.8366132, g: 1, b: 0, a: 1}
-  code: 110
-  label: Yellow
+  color: {r: 1, g: 0, b: 0, a: 1}
+  code: 98
+  label: rouge
+  pushStrenght: 3

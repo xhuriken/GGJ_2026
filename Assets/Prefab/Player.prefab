@@ -244,8 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fa6620f4119a345a9fb2bb95f1180a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strenght: 2
-  smoothTime: 0.3
+  pushSmoothTime: 0.3
   activationZone: {fileID: 3513168888689141186}
   currentTargetPos: {x: 0, y: 0, z: 0}
 --- !u!58 &4009685826385644363

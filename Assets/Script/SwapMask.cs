@@ -2,13 +2,11 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwapMask : MonoBehaviour
 {
-    [SerializeField] private float strenght;
-    [SerializeField] private float smoothTime;
+    [SerializeField] private float pushSmoothTime;
     [SerializeField] private ActivationZone activationZone;
     private List<Maskman> maskmen;
     public Vector3 currentTargetPos;
@@ -37,7 +35,7 @@ public class SwapMask : MonoBehaviour
     {
         this.currentTargetPos = currentTargetPos;
         DOTween.Kill(this);
-        transform.DOMove(currentTargetPos, smoothTime).SetEase(Ease.OutQuart).SetTarget(this);
+        transform.DOMove(currentTargetPos, pushSmoothTime).SetEase(Ease.OutQuart).SetTarget(this);
     }
 
     public void SetPosition(Vector3 targetPos)
@@ -64,7 +62,7 @@ public class SwapMask : MonoBehaviour
         Transform pusherTransform = FindClosestMaskmanOf(mask, playerPos);
         if(pusherTransform != null)
         {
-            var pushDistance = (playerPos - pusherTransform.position).normalized * strenght;
+            var pushDistance = (playerPos - pusherTransform.position).normalized * mask.pushStrenght;
             currentTargetPos = pushDistance + playerPos;
             SetCurrentTargetPos(currentTargetPos);
         }
