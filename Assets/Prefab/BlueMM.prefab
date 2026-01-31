@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3063838561588479429
+--- !u!1001 &1769123174505886600
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 672663856868576980, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_Name
-      value: GreenMM
+      value: BlueMM
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,15 +55,7 @@ PrefabInstance:
     - target: {fileID: 5192731407386645296, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: mask
       value: 
-      objectReference: {fileID: 11400000, guid: 3ec6cdc15f121004187cd04dc3618f68, type: 2}
-    - target: {fileID: 6953104351460463268, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953104351460463268, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 3e9df804edf538d429ade10a8d6f83c7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

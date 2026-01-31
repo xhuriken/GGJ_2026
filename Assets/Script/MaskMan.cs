@@ -16,6 +16,9 @@ public class Maskman : MonoBehaviour
         spriteRenderer.color = mask.color;
     }
 
-
+    public override string ToString()
+    {
+        return $"{mask.label} maskman";
+    }
 
 }

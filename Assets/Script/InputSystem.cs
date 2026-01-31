@@ -23,6 +23,7 @@ public class InputSystem : MonoBehaviour
         {
             if (Input.GetKeyDown(mask.code))
             {
+                onChangeMask?.Invoke(mask);
 
                 if (BeatManager.Instance.IsOnBeat())
                 {
