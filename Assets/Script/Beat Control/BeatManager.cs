@@ -34,6 +34,11 @@ public class BeatManager : MonoBehaviour
 
     private AudioSource audioSource;
     private bool hasSlowedDown = false;
+
+    [Header("Rythm Detection")]
+    public float threshold = 0.12f;
+    public double BeatDuration => 60.0 / bpm;
+
     void Awake()
     {
         Time.fixedDeltaTime = 0.02f;
@@ -184,6 +189,26 @@ public class BeatManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(SceneId);
 
         
+    }
+
+    public bool IsOnBeat()
+    {
+        double currentTime = AudioSettings.dspTime;
+
+        // Time elapsed from the start of the game
+        double timeElapsed = currentTime - startDspTime;
+
+        // where we are sinse le last beat
+        double timeSinceLastBeat = timeElapsed % BeatDuration;
+
+        // time until the next beat
+        double timeToNextBeat = BeatDuration - timeSinceLastBeat;
+
+        // we take the shorter time between both
+        double smallestDiff = Math.Min(timeSinceLastBeat, timeToNextBeat);
+
+        // if the time is <= treshold, WE ARE ON TIME
+        return smallestDiff <= threshold;
     }
 
 }
