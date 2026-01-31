@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SwapMask : MonoBehaviour
 {
+    [SerializeField] private bool aimAssist;
     [SerializeField] private float pushSmoothTime;
     [SerializeField] private ActivationZone activationZone;
     private List<Maskman> maskmen;
@@ -31,16 +32,32 @@ public class SwapMask : MonoBehaviour
 
     public Vector3 GetCurrentTargetPos() => currentTargetPos;
 
-    public void SetCurrentTargetPos(Vector3 currentTargetPos)
+    public void SetCurrentTargetPos(Vector3 targetPos)
     {
-        this.currentTargetPos = currentTargetPos;
+        this.currentTargetPos = GetFinalTargetPos(targetPos);
         DOTween.Kill(this);
-        transform.DOMove(currentTargetPos, pushSmoothTime).SetEase(Ease.OutQuart).SetTarget(this);
+        transform.DOMove(this.currentTargetPos, pushSmoothTime).SetEase(Ease.OutQuart).SetTarget(this);
     }
 
     public void SetPosition(Vector3 targetPos)
     {
-       StartCoroutine(SetPosCoroutine(targetPos));
+        StartCoroutine(SetPosCoroutine(targetPos));
+    }
+
+    private Vector3 GetFinalTargetPos(Vector3 targetPos)
+    {
+        var finalTargetPos = targetPos;
+        Debug.Log($"raw : {finalTargetPos}");
+        if (aimAssist)
+        {
+            finalTargetPos = new Vector3(
+                Mathf.Round(targetPos.x + 0.5f) - 0.5f,
+                Mathf.Round(targetPos.y + 0.5f) - 0.5f,
+                targetPos.z
+            );
+            Debug.Log($"assisted : {finalTargetPos}");
+        }
+        return finalTargetPos;
     }
 
     IEnumerator SetPosCoroutine(Vector3 targetPos)

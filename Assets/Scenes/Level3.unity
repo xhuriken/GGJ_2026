@@ -390,11 +390,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5560717609662771691, guid: aaac9bbe348d792408607cc46cf897b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.55
       objectReference: {fileID: 0}
     - target: {fileID: 5560717609662771691, guid: aaac9bbe348d792408607cc46cf897b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680392974100645676, guid: aaac9bbe348d792408607cc46cf897b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680392974100645676, guid: aaac9bbe348d792408607cc46cf897b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 6937373578812576862, guid: aaac9bbe348d792408607cc46cf897b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -556,6 +564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7431310010059132713, guid: 4ed7933db9ccbd24283b17ca0ce7ecc2, type: 3}
+      propertyPath: aimAssist
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7466541925295868360, guid: 4ed7933db9ccbd24283b17ca0ce7ecc2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -585,5 +597,5 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 56428626}
   - {fileID: 1647173958}
+  - {fileID: 56428626}
