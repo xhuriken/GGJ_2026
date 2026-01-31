@@ -24,6 +24,14 @@ public class InputSystem : MonoBehaviour
             if (Input.GetKeyDown(mask.code))
             {
                 onChangeMask?.Invoke(mask);
+
+                if (BeatManager.Instance.IsOnBeat())
+                {
+                    Debug.Log("On Beat!");
+                    // TODO: add scoring effect
+                }
+
+                onChangeMask.Invoke(mask);
                 Debug.Log($"swap to {mask.label}");   
                 break;
             }
