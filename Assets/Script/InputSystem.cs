@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,7 @@ public class InputSystem : MonoBehaviour
 
     private List<Mask> masks;
     public UnityEvent<Mask> onChangeMask; 
+    public bool OnHold { get; set; } = false; 
 
     void Awake()
     {
@@ -30,6 +32,10 @@ public class InputSystem : MonoBehaviour
 
     void Update()
     {
+        if(OnHold)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             DOTween.KillAll();
