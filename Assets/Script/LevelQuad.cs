@@ -1,13 +1,18 @@
-using DG.Tweening;
-using Sirenix.OdinInspector;
-using Unity.Properties;
-using UnityEditor;
 using UnityEngine;
 
 public class LevelQuad : MonoBehaviour
 {
+    public LevelQuad left;
+    public LevelQuad right;
+    public LevelQuad top;
+    public LevelQuad bottom;
+
     float xMax, yMax, xMin, yMin;
-    
+
+    public float GetXMax() => xMax;
+    public float GetXmin() => xMin;
+    public float GetYMax() => yMax; 
+    public float GetYmin() => yMin; 
 
     void Awake()
     {
@@ -46,20 +51,38 @@ public class LevelQuad : MonoBehaviour
             float dy = newTargetPos.y - newPlayerPos.y;
 
             if (oldPlayerPos.x + colliderRadius >= xMax) {
-                newPlayerPos.x = xMin;
-                newTargetPos.x = xMin + dx;
+                
+                newPlayerPos.x = right ? right.GetXmin() : xMin;
+                newTargetPos.x = newPlayerPos.x + dx;
+                if (right)
+                {
+                    CameraManager.Instance().FocusOnLevelQuad(right);
+                }
+
             } 
             else if (oldPlayerPos.x - colliderRadius <= xMin) {
-                newPlayerPos.x = xMax;
-                newTargetPos.x = xMax + dx;
+                newPlayerPos.x = left ? left.GetXMax()  : xMax;
+                newTargetPos.x = newPlayerPos.x + dx;
+                if (left)
+                {
+                    CameraManager.Instance().FocusOnLevelQuad(left);
+                }
             }
             if (oldPlayerPos.y + colliderRadius >= yMax) {
-                newPlayerPos.y = yMin;
-                newTargetPos.y = yMin + dy;
+                newPlayerPos.y = bottom ? bottom.GetYmin() : yMin;
+                newTargetPos.y = newPlayerPos.y + dy;
+                if (bottom)
+                {
+                    CameraManager.Instance().FocusOnLevelQuad(bottom);
+                }
             } 
             else if (oldPlayerPos.y - colliderRadius <= yMin) {
-                newPlayerPos.y = yMax;
-                newTargetPos.y = yMax + dy;
+                newPlayerPos.y = top ? top.GetYMax() : yMax;
+                newTargetPos.y = newPlayerPos.y + dy;
+                if (top)
+                {
+                    CameraManager.Instance().FocusOnLevelQuad(top);
+                }
             }
 
             other.transform.position = newPlayerPos;
