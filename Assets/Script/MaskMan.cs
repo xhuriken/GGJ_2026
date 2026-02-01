@@ -21,6 +21,7 @@ public class Maskman : BeatListen
         sprite = transform.GetChild(0).gameObject;
         animator = sprite.GetComponent<Animator>();
         baseScale = sprite.transform.localScale;
+        Debug.Log(sprite.name);
     }
 
     void Start()

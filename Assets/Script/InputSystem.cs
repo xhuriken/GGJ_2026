@@ -14,8 +14,6 @@ public class InputSystem : MonoBehaviour
     public List<Mask> masks;
     public UnityEvent<Mask> onChangeMask; 
     public bool OnHold { get; set; } = false; 
-
-    private bool canReload = true;
     void Awake()
     {
         if(instance != null &&  instance != this)

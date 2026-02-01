@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     {
         if(instance == null && instance != this)
         {
-            Destroy(instance);
             Debug.Log("GameManager duplicate destroyed");
         }
         instance = this;
