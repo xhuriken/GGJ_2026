@@ -13,6 +13,8 @@ public class SwapMask : MonoBehaviour
     public Vector3 currentTargetPos;
     private bool moving = false;
 
+    public SpriteRenderer playerSpriteRenderer;
+
     void Awake()
     {
         maskmen = GameObject
@@ -41,7 +43,10 @@ public class SwapMask : MonoBehaviour
         transform.DOMove(this.currentTargetPos, pushSmoothTime)
             .SetEase(Ease.OutQuart)
             .SetTarget(this)
-            .OnComplete(() => moving = false);
+            .OnComplete(() => {
+            moving = false;
+                playerSpriteRenderer.sprite = null;
+        });
     }
 
     public void SetPosition(Vector3 targetPos)
@@ -80,6 +85,12 @@ public class SwapMask : MonoBehaviour
 
     public void MaskSwap(Mask mask)
     {
+        if (playerSpriteRenderer != null && mask.maskSprite != null)
+        {
+            playerSpriteRenderer.sprite = mask.maskSprite;
+ 
+        }
+
         Vector3 playerPos = transform.position;
         Transform pusherTransform = FindClosestMaskmanOf(mask, playerPos);
         if(pusherTransform != null)
