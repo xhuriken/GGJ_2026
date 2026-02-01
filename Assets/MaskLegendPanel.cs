@@ -16,7 +16,7 @@ public class MaskLegendPanel : MonoBehaviour
         foreach (Transform child in transform) {
             Destroy(child.gameObject);
         }
-        foreach(var mask in GameManager.Instance().GetAllMasks())
+        foreach(var mask in GameManager.Instance.GetAllMasks())
         {
             var go = Instantiate(maskLegend, transform, false);
             go.GetComponent<MaskLegend>().SetContent(mask);

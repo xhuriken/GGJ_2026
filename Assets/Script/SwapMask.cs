@@ -63,14 +63,14 @@ public class SwapMask : MonoBehaviour
     IEnumerator SetPosCoroutine(Vector3 targetPos)
     {
         DOTween.Kill(this);
-        GameManager.Instance().ActivateQuadBoundaries(false);
+        GameManager.Instance.ActivateQuadBoundaries(false);
         enabled = false;
         yield return new WaitForFixedUpdate();
         currentTargetPos = targetPos;
         transform.position = targetPos;
         yield return new WaitForFixedUpdate();
         enabled = true;
-        GameManager.Instance().ActivateQuadBoundaries(true);
+        GameManager.Instance.ActivateQuadBoundaries(true);
     }
 
     public void MaskSwap(Mask mask)
@@ -128,6 +128,6 @@ public class SwapMask : MonoBehaviour
 
     private bool IsInCurrentLevelQuad(Maskman man)
     {
-        return GameManager.Instance().GetCurrentLevelQuad().Contains(man.transform);
+        return GameManager.Instance.GetCurrentLevelQuad().Contains(man.transform);
     }
 }

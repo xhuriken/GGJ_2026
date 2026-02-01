@@ -9,7 +9,7 @@ public class Exit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log($"Exit triggered : Player go to {next}");
-            GameManager.Instance().GetCurrentLevelQuad();
+            GameManager.Instance.GetCurrentLevelQuad();
             CameraManager.Instance().FocusOnLevelQuad(next);
             other.GetComponent<SwapMask>().SetPosition(next.GetSpawnPosition());
         }  

@@ -7,20 +7,25 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public static GameManager Instance() => instance;
 
     private LevelQuad[] quads;
     private List<Maskman> maskmen;
     private List<Mask> masks;
     private Transform player;
 
+    public static GameManager Instance => instance;
+
     void Awake()
     {
-        if(instance == null && instance != this)
+        if (instance != null && instance != this)
         {
-            Debug.Log("GameManager duplicate destroyed");
+            Destroy(gameObject);
+            Debug.LogError("Multiple GameManager instances detected. Destroying duplicate.");
+            return;
         }
         instance = this;
+
+
         player = FindFirstObjectByType<SwapMask>().transform;
         quads = FindObjectsByType<LevelQuad>(FindObjectsSortMode.None);
         maskmen = FindObjectsByType<Maskman>(FindObjectsSortMode.None).ToList();
