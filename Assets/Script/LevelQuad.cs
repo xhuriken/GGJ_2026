@@ -61,10 +61,8 @@ public class LevelQuad : MonoBehaviour
             float dy = newTargetPos.y - newPlayerPos.y;
 
             if (oldPlayerPos.x + colliderRadius >= xMax) {
-                
                 newPlayerPos.x = xMin;
                 newTargetPos.x = newPlayerPos.x + dx;
-
             } 
             else if (oldPlayerPos.x - colliderRadius <= xMin) {
                 newPlayerPos.x = xMax;
