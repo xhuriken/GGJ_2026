@@ -49,7 +49,7 @@ public class Maskman : BeatListen
     protected override void HandleBeat(int beatNumber)
     {
         Debug.Log($"{gameObject.name} Zbi");
-
+        
         animator.SetTrigger("Beat");    
         DOTween.Kill(this);
         sprite.transform.localScale = Scale; 

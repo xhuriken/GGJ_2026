@@ -36,7 +36,7 @@ public class InputSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            DOTween.KillAll();
+            //DOTween.KillAll();
             Scene currentScene = SceneManager.GetActiveScene();
             GlobalEffect.Instance.LaunchScreenTransition();
             SceneManager.LoadScene(currentScene.name);
