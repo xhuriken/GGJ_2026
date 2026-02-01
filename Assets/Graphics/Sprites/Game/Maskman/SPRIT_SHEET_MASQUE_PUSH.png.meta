@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a05323500febbe64e8d388e70223d56a
+guid: a17a97256d30ce342ae313f143065a07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,112 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRIT_SHEET_MASQUE_BLANC_0
+      name: SPRIT_SHEET_MASQUE_PUSH_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a02bfa4ff421e243b58114e9b54d8f4
+      internalID: -1912467114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRIT_SHEET_MASQUE_PUSH_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0d4723ca2430e40b513ef82e98e568
+      internalID: 1891449987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRIT_SHEET_MASQUE_PUSH_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf754807fc8bfa40bc621b2beb303bd
+      internalID: -1263534282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRIT_SHEET_MASQUE_PUSH_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730feacd05a9644408dcd401daf71841
+      internalID: 1308766206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRIT_SHEET_MASQUE_PUSH_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ba7db5de19b3c42a8321e45435f97b
+      internalID: 34583945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRIT_SHEET_MASQUE_PUSH_5
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58ce1ad9ca46ffc43934374f6726b5c0
-      internalID: -1262349276
+      spriteID: f20e73c181466894da82313a4424ee70
+      internalID: 1027659054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRIT_SHEET_MASQUE_BLANC_1
+      name: SPRIT_SHEET_MASQUE_PUSH_6
       rect:
         serializedVersion: 2
         x: 300
@@ -132,29 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04a1683ff329ff94c93efc214de0daf0
-      internalID: 1594087159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRIT_SHEET_MASQUE_BLANC_2
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 300
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4ee31d77f1962947856b3489d91acdb
-      internalID: -589146789
+      spriteID: 14ea782bcce0c9d41ae75c1ddb754095
+      internalID: -284969855
       vertices: []
       indices: 
       edges: []
@@ -170,9 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SPRIT_SHEET_MASQUE_BLANC_0: -1262349276
-      SPRIT_SHEET_MASQUE_BLANC_1: 1594087159
-      SPRIT_SHEET_MASQUE_BLANC_2: -589146789
+      SPRIT_SHEET_MASQUE_PUSH_0: -1912467114
+      SPRIT_SHEET_MASQUE_PUSH_1: 1891449987
+      SPRIT_SHEET_MASQUE_PUSH_2: -1263534282
+      SPRIT_SHEET_MASQUE_PUSH_3: 1308766206
+      SPRIT_SHEET_MASQUE_PUSH_4: 34583945
+      SPRIT_SHEET_MASQUE_PUSH_5: 1027659054
+      SPRIT_SHEET_MASQUE_PUSH_6: -284969855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
