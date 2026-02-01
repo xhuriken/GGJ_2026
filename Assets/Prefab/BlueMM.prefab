@@ -22,19 +22,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263127797865255378, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_Color.g
-      value: 0.05725074
+      value: 0.43351826
       objectReference: {fileID: 0}
     - target: {fileID: 3263127797865255378, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.39811313
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263127797865255378, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.341
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5044387
+      value: 3.86
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0631218
+      value: -4.4
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5148672305916402868, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 5192731407386645296, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: mask
@@ -87,6 +91,22 @@ PrefabInstance:
     - target: {fileID: 7576167862321434579, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783949067046215014, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783949067046215014, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Color.g
+      value: 0.24372625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783949067046215014, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783949067046215014, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.643
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
