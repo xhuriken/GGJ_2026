@@ -47,7 +47,7 @@ public class Maskman : BeatListen
 
     protected override void HandleBeat(int beatNumber)
     {
-        Debug.Log("Zbi");
+        Debug.Log($"{gameObject.name} Zbi");
 
         animator.SetTrigger("Beat");    
         DOTween.Kill(this);
