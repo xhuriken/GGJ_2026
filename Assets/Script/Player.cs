@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : BeatListen
 {
-    protected override void HandleBeat(int beatNumber)
+    public override void HandleBeat(int beatNumber)
     {
         //Debug.Log($"Je suis le player et yoohoo �a beat un max ici: {beatNumber}");
         DOTween.Kill(this);
@@ -18,7 +18,6 @@ public class Player : BeatListen
     // Start is called before the first frame update
     void Start()
     {
-        base.Start();
     }
 
     // Update is called once per frame

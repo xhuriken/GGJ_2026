@@ -39,6 +39,8 @@ public class BeatManager : MonoBehaviour
     public float threshold = 0.12f;
     public double BeatDuration => 60.0 / bpm;
 
+    private List<BeatListen> listeners = new List<BeatListen>();
+
     void Awake()
     {
         Time.fixedDeltaTime = 0.02f;
@@ -74,6 +76,15 @@ public class BeatManager : MonoBehaviour
         StartCoroutine(OpenHatLoop());
     }
 
+    public void RegisterListener(BeatListen listener)
+    {
+        if (!listeners.Contains(listener)) listeners.Add(listener);
+    }
+
+    public void UnregisterListener(BeatListen listener)
+    {
+        if (listeners.Contains(listener)) listeners.Remove(listener);
+    }
     IEnumerator BeatLoop()
     {
         double beatDuration = 60.0 / bpm;
@@ -86,7 +97,11 @@ public class BeatManager : MonoBehaviour
             {
                 localbeatCount++;
                 beatCount++;
-                OnBeat?.Invoke(beatCount);
+                foreach (var listener in listeners.ToArray())
+                {
+                    if (listener != null && listener.beatType == BeatType.Beat)
+                        listener.HandleBeat(beatCount);
+                }
 
                 if ((beatCount % 4) == 0)
                 {
@@ -112,7 +127,11 @@ public class BeatManager : MonoBehaviour
             if (AudioSettings.dspTime >= nextOffbeatTime)
             {
                 offbeatCount++;
-                OnOffbeat?.Invoke(offbeatCount);
+                foreach (var listener in listeners.ToArray())
+                {
+                    if (listener != null && listener.beatType == BeatType.Offbeat)
+                        listener.HandleBeat(beatCount);
+                }
                 nextOffbeatTime += beatDuration;
             }
         }
@@ -135,14 +154,15 @@ public class BeatManager : MonoBehaviour
                 if (openHatCount < measureCount)
                 {
                     openHatCount = measureCount;
-                    OnOpenHat?.Invoke(openHatCount);
+                    foreach (var listener in listeners.ToArray())
+                    {
+                        if (listener != null && listener.beatType == BeatType.OpenHat)
+                            listener.HandleBeat(beatCount);
+                    }
                 }
             }
         }
     }
-
-
-   
 
     public void PitchAndLaunchScene(int SceneId ,bool quitgame = false)
     {
