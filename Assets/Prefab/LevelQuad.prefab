@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f914326584881c14a9e90c1d080b82fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliderRadius: 0.5
