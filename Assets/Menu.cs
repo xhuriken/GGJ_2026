@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
@@ -23,8 +25,10 @@ public class Menu : MonoBehaviour
 
     private IEnumerator PlayTransition()
     {
-        yield return null;
-        // TODO: load the main scene
+
+        GlobalEffect.Instance.LaunchScreenTransition();
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene("Game");
     }
 
     public void Quit()
@@ -34,8 +38,8 @@ public class Menu : MonoBehaviour
 
     private IEnumerator QuitTransition()
     {
-
-        yield return null;
+        GlobalEffect.Instance.LaunchScreenTransition();
+        yield return new WaitForSeconds(0.2f);
         Application.Quit();
 
     }

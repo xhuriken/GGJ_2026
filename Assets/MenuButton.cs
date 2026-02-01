@@ -11,6 +11,7 @@ public class MenuButton : CustomButtonBase
 
     public Image _image;
     private RectTransform _rectTransform;
+    public Color hoverColor = Color.red;
 
     private Tween _tweenEnter;
     private Tween _tweenExit;
@@ -24,7 +25,7 @@ public class MenuButton : CustomButtonBase
     public override void OnPointerEnter(PointerEventData eventData)
     {
         _tweenEnter.Kill();
-        _tweenEnter = _image.DOColor(Color.red, 0.2f).SetEase(Ease.InOutCubic).SetTarget(this);
+        _tweenEnter = _image.DOColor(hoverColor, 0.2f).SetEase(Ease.InOutCubic).SetTarget(this);
     }
 
     public override void OnPointerExit(PointerEventData eventData)
