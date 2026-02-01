@@ -46,10 +46,20 @@ public class Maskman : BeatListen
 
     }
 
-    protected override void HandleBeat(int beatNumber)
+    public override void HandleBeat(int beatNumber)
     {
-        Debug.Log($"{gameObject.name} Zbi");
-        
+        if(animator == null)
+        {
+            Debug.LogError($"No animator on this fucking maskman sprite {this.name}");
+            return;
+
+        }
+        if (sprite == null)
+        {
+            Debug.LogError($"No sprite on this fucking maskman {this.name}");
+            return;
+        }
+        Debug.Log($"Maskman {this.name} received a beat");
         animator.SetTrigger("Beat");    
         DOTween.Kill(this);
         sprite.transform.localScale = Scale; 

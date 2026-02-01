@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AspireMM
       objectReference: {fileID: 0}
+    - target: {fileID: 2603925155709466729, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3263127797865255378, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_Color.b
       value: 0.509434

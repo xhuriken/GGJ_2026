@@ -46,7 +46,7 @@ public class CameraManager : BeatListen
 
     }
 
-    protected override void HandleBeat(int beatNumber)
+    public override void HandleBeat(int beatNumber)
     {
         DOTween.Kill(cineCam);
 
