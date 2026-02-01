@@ -3,6 +3,7 @@ using UnityEngine;
 public class LevelQuad : MonoBehaviour
 {
     private Transform spawn;
+    public float colliderRadius;
 
     float xMax, yMax, xMin, yMin;
 
@@ -44,40 +45,43 @@ public class LevelQuad : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && Active)
+        // do not use
+    }
+
+    public void HandleBorderCrossing(Transform transform)
+    {
+        if (transform.CompareTag("Player") && Active)
         {
-            Debug.Log("Player has left the level!");
-            CircleCollider2D collider = other.gameObject.GetComponent<CircleCollider2D>();
-            float colliderRadius = collider.radius;
-            SwapMask swapMask = other.gameObject.GetComponent<SwapMask>();
+            Debug.Log("Player has left the level!");    
+            SwapMask swapMask = transform.gameObject.GetComponent<SwapMask>();
             Vector3 newTargetPos = swapMask.GetCurrentTargetPos();
-            Vector3 oldPlayerPos = other.transform.position;
+            Vector3 oldPlayerPos = transform.position;
             Vector3 newPlayerPos = new (
-                other.transform.position.x,
-                other.transform.position.y,
-                other.transform.position.z
+                transform.position.x,
+                transform.position.y,
+                transform.position.z
                 );
             float dx = newTargetPos.x - newPlayerPos.x;
             float dy = newTargetPos.y - newPlayerPos.y;
-
+            float enterFactor = 1.5f;
             if (oldPlayerPos.x + colliderRadius >= xMax) {
-                newPlayerPos.x = xMin;
+                newPlayerPos.x = xMin + enterFactor * colliderRadius;
                 newTargetPos.x = newPlayerPos.x + dx;
             } 
             else if (oldPlayerPos.x - colliderRadius <= xMin) {
-                newPlayerPos.x = xMax;
+                newPlayerPos.x = xMax - enterFactor * colliderRadius;
                 newTargetPos.x = newPlayerPos.x + dx;
             }
-            if (oldPlayerPos.y + colliderRadius >= yMax) {
-                newPlayerPos.y = yMin;
+            if (oldPlayerPos.y  + colliderRadius >= yMax) {
+                newPlayerPos.y = yMin  + enterFactor * colliderRadius;
                 newTargetPos.y = newPlayerPos.y + dy;
             } 
-            else if (oldPlayerPos.y - colliderRadius <= yMin) {
-                newPlayerPos.y = yMax;
+            else if (oldPlayerPos.y -  colliderRadius <= yMin) {
+                newPlayerPos.y = yMax  - enterFactor * colliderRadius;
                 newTargetPos.y = newPlayerPos.y + dy;
             }
 
-            other.transform.position = newPlayerPos;
+            transform.position = newPlayerPos;
             swapMask.SetCurrentTargetPos(newTargetPos);
         }
     }

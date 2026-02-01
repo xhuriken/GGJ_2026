@@ -12,6 +12,7 @@ public class Exit : MonoBehaviour
             GameManager.Instance.GetCurrentLevelQuad();
             CameraManager.Instance().FocusOnLevelQuad(next);
             other.GetComponent<SwapMask>().SetPosition(next.GetSpawnPosition());
+            other.GetComponent<PlayerQuadInteraction>().SetCurrentQuad(next);
         }  
     }
 }
