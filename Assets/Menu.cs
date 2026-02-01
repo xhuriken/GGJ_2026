@@ -27,7 +27,7 @@ public class Menu : MonoBehaviour
     {
 
         GlobalEffect.Instance.LaunchScreenTransition();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         SceneManager.LoadScene("Game");
     }
 
@@ -39,7 +39,7 @@ public class Menu : MonoBehaviour
     private IEnumerator QuitTransition()
     {
         GlobalEffect.Instance.LaunchScreenTransition();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         Application.Quit();
 
     }
