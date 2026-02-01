@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowMask
       objectReference: {fileID: 0}
+    - target: {fileID: 3263127797865255378, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8377491
+      objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
