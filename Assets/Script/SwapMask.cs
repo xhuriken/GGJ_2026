@@ -11,6 +11,7 @@ public class SwapMask : MonoBehaviour
     [SerializeField] private ActivationZone activationZone;
     private List<Maskman> maskmen;
     public Vector3 currentTargetPos;
+    private bool moving = false;
 
     void Awake()
     {
@@ -36,7 +37,11 @@ public class SwapMask : MonoBehaviour
     {
         this.currentTargetPos = GetFinalTargetPos(targetPos);
         DOTween.Kill(this);
-        transform.DOMove(this.currentTargetPos, pushSmoothTime).SetEase(Ease.OutQuart).SetTarget(this);
+        moving = true;
+        transform.DOMove(this.currentTargetPos, pushSmoothTime)
+            .SetEase(Ease.OutQuart)
+            .SetTarget(this)
+            .OnComplete(() => moving = false);
     }
 
     public void SetPosition(Vector3 targetPos)
