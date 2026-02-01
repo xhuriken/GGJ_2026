@@ -47,7 +47,7 @@ public class SwapMask : MonoBehaviour
     private Vector3 GetFinalTargetPos(Vector3 targetPos)
     {
         var finalTargetPos = targetPos;
-        Debug.Log($"raw : {finalTargetPos}");
+        //Debug.Log($"raw : {finalTargetPos}");
         if (aimAssist)
         {
             finalTargetPos = new Vector3(
@@ -55,7 +55,7 @@ public class SwapMask : MonoBehaviour
                 Mathf.Round(targetPos.y + 0.5f) - 0.5f,
                 targetPos.z
             );
-            Debug.Log($"assisted : {finalTargetPos}");
+            //Debug.Log($"assisted : {finalTargetPos}");
         }
         return finalTargetPos;
     }
