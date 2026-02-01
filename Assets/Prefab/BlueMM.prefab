@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMM
       objectReference: {fileID: 0}
+    - target: {fileID: 2603925155709466729, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cd56ec076a27410408d8083feac8f4d7, type: 2}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.5044387
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.0631218
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3579903655283590966, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -56,6 +60,14 @@ PrefabInstance:
       propertyPath: mask
       value: 
       objectReference: {fileID: 11400000, guid: 3e9df804edf538d429ade10a8d6f83c7, type: 2}
+    - target: {fileID: 5192731407386645296, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: spriteShaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576167862321434579, guid: b70c799a231c83b4eb570845402a7faa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1046145753, guid: 7e189d2dac781e144a50aafde7600f88, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

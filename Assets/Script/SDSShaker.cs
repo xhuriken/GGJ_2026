@@ -4,14 +4,6 @@ using Sirenix.OdinInspector;
 
 public class SDSShaker : MonoBehaviour
 {
-    public static SDSShaker Instance;
-
-    private void Awake()
-    {
-        // Simple singleton: allows calling SDSShaker.Instance.Shake(...)
-        Instance = this;
-    }
-
     /// <summary>
     /// One independent "Shake simulator".
     /// It simulates a 1D spring-damper (position + velocity),

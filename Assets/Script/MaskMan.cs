@@ -3,21 +3,28 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class Maskman : MonoBehaviour
+public class Maskman : BeatListen
 {
     public Mask mask;
     public TextMeshProUGUI buttonLabel;
 
-    private SpriteRenderer spriteRenderer;
+    [Header("Bounce Settings")]
+    [SerializeField] private Vector3 Scale = new Vector3(1.2f, 1.2f, 1.2f); 
+    [SerializeField] private float duration = 0.2f;
 
-    void Awake()
+    private GameObject sprite;
+    private Animator animator;
+    private Vector3 baseScale;
+
+    private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        sprite = transform.GetChild(0).gameObject;
+        animator = sprite.GetComponent<Animator>();
+        baseScale = sprite.transform.localScale;
     }
 
     void Start()
     {
-        spriteRenderer.color = mask.color;
         buttonLabel.text = mask.code.ToString();
     }
 
@@ -35,6 +42,18 @@ public class Maskman : MonoBehaviour
             // come back chilly
             transform.DOMove(basePos, 0.2f).SetEase(Ease.OutSine).SetTarget(this);
         });
+
+    }
+
+    protected override void HandleBeat(int beatNumber)
+    {
+        Debug.Log("Zbi");
+
+        animator.SetTrigger("Beat");    
+        DOTween.Kill(this);
+        sprite.transform.localScale = Scale; 
+        sprite.transform.DOScale(baseScale, duration).SetTarget(this);
+
 
     }
 }
