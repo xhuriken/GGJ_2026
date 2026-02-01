@@ -16,3 +16,4 @@ MonoBehaviour:
   code: 118
   label: green
   pushStrenght: 3
+  maskSprite: {fileID: 21300000, guid: 0e5b66438e8dea7449e17db9d371a388, type: 3}

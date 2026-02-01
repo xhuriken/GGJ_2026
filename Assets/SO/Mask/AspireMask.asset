@@ -16,3 +16,4 @@ MonoBehaviour:
   code: 104
   label: Aspire
   pushStrenght: -2
+  maskSprite: {fileID: 21300000, guid: 5afb0ded1c6ec354ea8daa43528fd657, type: 3}

@@ -7,4 +7,5 @@ public class Mask : ScriptableObject
     public KeyCode code;
     public string label;
     public float pushStrenght;
-}
+    public Sprite maskSprite;
+}   
